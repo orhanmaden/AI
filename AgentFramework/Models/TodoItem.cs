@@ -15,7 +15,7 @@ public class TodoItem
     public DateTime? CompletedAt { get; set; }
     public List<string> SubTasks { get; set; } = new();
     public string? AssignedAgent { get; set; }
-    public Dictionary<string, string> Metadata { get; set; } = new();
+    public Dictionary<string, string> Metadata { get; } = new();
 }
 
 public enum TodoPriority
