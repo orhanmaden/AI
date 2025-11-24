@@ -2,5 +2,6 @@
   <Project Path="AgentFramework/AgentFramework.csproj" />
   <Project Path="MCP.Client/MCP.Client.csproj" />
   <Project Path="MCP/MCP.csproj" />
+  <Project Path="SemanticKernel.Embeddings/SemanticKernel.Embeddings.csproj" Id="c88d3ff9-e491-4515-b442-ec9b372011d1" />
   <Project Path="SemanticKernel/SemanticKernel.csproj" />
 </Solution>
