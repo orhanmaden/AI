@@ -84,7 +84,7 @@ public class AgentOrchestrator
         catch (Exception ex)
         {
             _state.LogActivity($"Orchestrator: Error processing input: {ex.Message}");
-            return $"? Error: {ex.Message}";
+            return $"! Error: {ex.Message}";
         }
     }
 
