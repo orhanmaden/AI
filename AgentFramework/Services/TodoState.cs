@@ -10,7 +10,7 @@ public class TodoState
 {
     private readonly ConcurrentDictionary<string, TodoItem> _todos = new();
     private readonly ConcurrentQueue<AgentMessage> _messageQueue = new();
-    private ConcurrentBag<string> _activityLog = new();
+    private readonly ConcurrentQueue<string> _activityLog = new();
 
     public IReadOnlyDictionary<string, TodoItem> Todos => _todos;
 
@@ -61,7 +61,7 @@ public class TodoState
 
     public void LogActivity(string activity)
     {
-        _activityLog.Add($"[{DateTime.UtcNow:HH:mm:ss}] {activity}");
+        _activityLog.Enqueue($"[{DateTime.UtcNow:HH:mm:ss}] {activity}");
     }
 
     public List<string> GetActivityLog()
@@ -71,6 +71,9 @@ public class TodoState
 
     public void ClearActivityLog()
     {
-        _activityLog = new ConcurrentBag<string>();
+        while (_activityLog.TryDequeue(out _))
+        {
+            // Drain the queue
+        }
     }
 }
